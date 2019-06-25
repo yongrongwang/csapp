@@ -85,5 +85,82 @@ fact_while_gd_goto:
 	.cfi_endproc
 .LFE4:
 	.size	fact_while_gd_goto, .-fact_while_gd_goto
+	.globl	fact_for
+	.type	fact_for, @function
+fact_for:
+.LFB5:
+	.cfi_startproc
+	movl	$1, %eax
+	movl	$2, %edx
+	jmp	.L16
+.L17:
+	imulq	%rdx, %rax
+	addq	$1, %rdx
+.L16:
+	cmpq	%rdi, %rdx
+	jle	.L17
+	rep ret
+	.cfi_endproc
+.LFE5:
+	.size	fact_for, .-fact_for
+	.globl	fact_for_while
+	.type	fact_for_while, @function
+fact_for_while:
+.LFB6:
+	.cfi_startproc
+	movl	$1, %eax
+	movl	$2, %edx
+	jmp	.L19
+.L20:
+	imulq	%rdx, %rax
+	addq	$1, %rdx
+.L19:
+	cmpq	%rdi, %rdx
+	jle	.L20
+	rep ret
+	.cfi_endproc
+.LFE6:
+	.size	fact_for_while, .-fact_for_while
+	.globl	fact_for_jm_goto
+	.type	fact_for_jm_goto, @function
+fact_for_jm_goto:
+.LFB7:
+	.cfi_startproc
+	movl	$1, %eax
+	movl	$2, %edx
+	jmp	.L22
+.L23:
+	imulq	%rdx, %rax
+	addq	$1, %rdx
+.L22:
+	cmpq	%rdi, %rdx
+	jle	.L23
+	rep ret
+	.cfi_endproc
+.LFE7:
+	.size	fact_for_jm_goto, .-fact_for_jm_goto
+	.globl	rfact
+	.type	rfact, @function
+rfact:
+.LFB8:
+	.cfi_startproc
+	cmpq	$1, %rdi
+	jg	.L31
+	movl	$1, %eax
+	ret
+.L31:
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movq	%rdi, %rbx
+	leaq	-1(%rdi), %rdi
+	call	rfact
+	imulq	%rbx, %rax
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE8:
+	.size	rfact, .-rfact
 	.ident	"GCC: (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0"
 	.section	.note.GNU-stack,"",@progbits
