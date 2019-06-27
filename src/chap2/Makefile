@@ -1,10 +1,10 @@
 CC = gcc
 CFLAGS = -Wall
 
-PROGS = show_bytes \
-	extend \
-	casting \
-	printf \
+PROGS = show_bytes\
+	extend\
+	casting\
+	printf\
 
 all: $(PROGS)
 

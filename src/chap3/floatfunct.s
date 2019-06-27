@@ -20,26 +20,21 @@ funct:
 find_range:
 .LFB1:
 	.cfi_startproc
+	movl	$0, %eax
 	vxorps	%xmm1, %xmm1, %xmm1
 	vucomiss	%xmm0, %xmm1
-	ja	.L6
+	ja	.L3
 	vucomiss	%xmm1, %xmm0
-	jp	.L9
-	je	.L7
-.L9:
-	vucomiss	.LC0(%rip), %xmm0
-	jbe	.L11
-	movl	$2, %eax
-	ret
-.L6:
-	movl	$0, %eax
-	ret
-.L7:
+	jp	.L8
 	movl	$1, %eax
-	ret
-.L11:
-	movl	$3, %eax
-	ret
+	je	.L3
+.L8:
+	vucomiss	.LC0(%rip), %xmm0
+	setbe	%al
+	movzbl	%al, %eax
+	addl	$2, %eax
+.L3:
+	rep ret
 	.cfi_endproc
 .LFE1:
 	.size	find_range, .-find_range

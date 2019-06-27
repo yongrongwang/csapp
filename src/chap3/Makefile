@@ -2,9 +2,11 @@ CC = gcc
 OPTg = -Og
 OPT1 = -O1
 MFLAGS = -mavx2
-CFLAGS = -Wall
 
-PROGS = 
+floatfunct.s: floatfunct.c
+	$(CC) $(MFLAGS) $(OPT1) -S floatfunct.c
+
+PROGS = floatfunct.s \
 
 all: $(PROGS)
 
