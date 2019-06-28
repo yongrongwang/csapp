@@ -9,6 +9,18 @@ PROGS = fork\
 	waitpid1\
 	waitpid2\
 	shellex\
+	kill\
+	sigint\
+	blockone\
+	sigintsafe\
+	signal1\
+	signal2\
+	procmask1\
+	procmask2\
+	waitforsignal\
+	sigsuspend\
+	setjmp\
+	restart\
 
 all: $(CSAPP_SRC)/csapp.o $(PROGS)
 
