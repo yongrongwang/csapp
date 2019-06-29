@@ -5,7 +5,7 @@
 double2bits:
 .LFB0:
 	.cfi_startproc
-	movq	%xmm0, %rax
+	vmovq	%xmm0, %rax
 	ret
 	.cfi_endproc
 .LFE0:
@@ -24,7 +24,7 @@ uu2double:
 	movl	%edi, %edi
 	orq	%rsi, %rdi
 	movq	%rdi, 8(%rsp)
-	movsd	8(%rsp), %xmm0
+	vmovsd	8(%rsp), %xmm0
 	movq	24(%rsp), %rax
 	xorq	%fs:40, %rax
 	jne	.L5

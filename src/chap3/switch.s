@@ -52,7 +52,7 @@ switch_eg_impl:
 	subq	$100, %rsi
 	cmpq	$6, %rsi
 	ja	.L10
-	leaq	jt.1810(%rip), %rax
+	leaq	jt.2260(%rip), %rax
 	jmp	*(%rax,%rsi,8)
 .L11:
 	leaq	(%rdi,%rdi,2), %rax
@@ -76,9 +76,9 @@ switch_eg_impl:
 	.size	switch_eg_impl, .-switch_eg_impl
 	.section	.data.rel.ro.local,"aw",@progbits
 	.align 32
-	.type	jt.1810, @object
-	.size	jt.1810, 56
-jt.1810:
+	.type	jt.2260, @object
+	.size	jt.2260, 56
+jt.2260:
 	.quad	.L11
 	.quad	.L10
 	.quad	.L13

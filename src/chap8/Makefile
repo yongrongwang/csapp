@@ -1,7 +1,7 @@
 CC = gcc
+CFLAGS = -Wall -Og -I $(CSAPP_INC) -I .
 CSAPP_INC = ../include
 CSAPP_SRC = ../src
-CFLAGS = -Wall -Og -I $(CSAPP_INC) -I .
 LDLIBS = -lpthread
 
 PROGS = fork\
