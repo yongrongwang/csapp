@@ -4,10 +4,7 @@ CSAPP_INC = ../include
 CSAPP_SRC = ../src
 LDLIBS = -lpthread
 
-# Note: we expect compiler warnings when we compile fragments.c
-PROGS = fragments.o\
-	mmapcopy\
-	staticsize\
+PROGS = staticsize\
 	dynamicsize\
 	sizeof\
 	sbrk\
