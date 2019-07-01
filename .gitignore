@@ -1,7 +1,3 @@
-# assembly files
-*.s
-*.O1-s
-
 # Prerequisites
 *.d
 
